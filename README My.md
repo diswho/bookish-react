@@ -41,3 +41,27 @@ Run
 ```sh
 npm run e2e
 ```
+
+## Stub Server
+
+```sh
+npm install json-server -global
+```
+
+### Run Stub Server
+
+```sh
+json-server -w db.json --port 8080
+```
+
+### config package
+
+```sh
+"stub-server": "json-server -w stub-server/db.json --port 8080"
+```
+
+#### run
+
+```sh
+npm run stub-server
+```

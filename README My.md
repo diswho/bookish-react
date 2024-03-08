@@ -27,3 +27,17 @@ npm install cypress --save-dev
 ```sh
 npx cypress open
 ```
+
+#### config package.json
+
+Add to "scripts"
+
+```sh
+"e2e": "cypress run"
+```
+
+Run
+
+```sh
+npm run e2e
+```

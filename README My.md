@@ -79,3 +79,9 @@ npm install json-server --save-dev
 ```sh
 node server.js
 ```
+
+# Frontedn Routing
+
+```sh
+npm install react-router react-router-dom --save
+```

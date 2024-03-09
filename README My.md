@@ -22,7 +22,7 @@ add fonts and icon in public/index.html
 npm install cypress --save-dev
 ```
 
-### Run Cypress
+### [Run Cypress]()
 
 ```sh
 npx cypress open
@@ -64,4 +64,18 @@ json-server -w db.json --port 8080
 
 ```sh
 npm run stub-server
+```
+
+#### run locally
+
+Link Github: [https://github.com/abruzzi/stub-server-for-bookish](https://github.com/abruzzi/stub-server-for-bookish)
+
+```sh
+npm install json-server --save-dev
+```
+
+##### run
+
+```sh
+node server.js
 ```

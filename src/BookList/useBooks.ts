@@ -5,7 +5,7 @@ export const useBooks = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-
+  const [term, setTerm] = useState("");
   useEffect(() => {
     const fetchBooks = async () => {
       setError(false);
@@ -21,7 +21,7 @@ export const useBooks = () => {
     };
     fetchBooks();
   }, []);
-  const [term, setTerm] = useState("");
+
   useEffect(() => {
     const fetchBooks = async (term: string) => {
       setError(false);

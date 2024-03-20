@@ -21,5 +21,23 @@ export const useBooks = () => {
     };
     fetchBooks();
   }, []);
+  const [term, setTerm] = useState("");
+  useEffect(() => {
+    const fetchBooks = async (term: string) => {
+      setError(false);
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/books?q=${term}&_sort=id`
+        );
+        setBooks(response.data);
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBooks(term);
+  }, [term]);
   return { loading, error, books };
 };

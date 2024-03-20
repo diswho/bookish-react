@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 
-export const useBook = () => {
-  const { id } = useParams<string>();
-  const [book, setBook] = useState({ id: 0, name: "" });
+export const useBooks = () => {
+  const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -13,8 +11,8 @@ export const useBook = () => {
       setError(false);
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8080/books/${id}`);
-        setBook(response.data);
+        const response = await axios.get("http://localhost:8080/books");
+        setBooks(response.data);
       } catch (e) {
         setError(true);
       } finally {
@@ -22,6 +20,6 @@ export const useBook = () => {
       }
     };
     fetchBooks();
-  }, [id]);
-  return { loading, error, book };
+  }, []);
+  return { loading, error, books };
 };

@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/Book/BookList.test.tsx"]
+  "include": ["src", "src/BookList.test.tsx"]
 }

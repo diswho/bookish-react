@@ -1,13 +1,10 @@
+import BookDetail from "./BookDetail";
 import { useBook } from "./useBook";
 
 const BookDetailContainer = () => {
   const { book } = useBook();
 
-  return (
-    <div className="detail">
-      <h2 className="book-title">{book && book.name}</h2>
-    </div>
-  );
+  return <BookDetail book={book} />;
 };
 
 export default BookDetailContainer;

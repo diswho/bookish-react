@@ -6,6 +6,7 @@ export const useBooks = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [term, setTerm] = useState("");
+  
   useEffect(() => {
     const fetchBooks = async () => {
       setError(false);
@@ -39,5 +40,5 @@ export const useBooks = () => {
     };
     fetchBooks(term);
   }, [term]);
-  return { loading, error, books };
+  return { loading, error, books, term, setTerm };
 };

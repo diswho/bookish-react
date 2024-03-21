@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Book } from "../types";
+import { fetchBooks } from "./createAsyncThunk";
 
 type AppStateType = {
     books: Book[],
@@ -15,6 +16,7 @@ const initialState: AppStateType = {
     term: ""
 }
 
+
 export const bookListSlice = createSlice({
     name: "books",
     initialState: initialState,
@@ -22,6 +24,19 @@ export const bookListSlice = createSlice({
         setTerm: (state, action) => {
             state.term = action.payload;
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchBooks.fulfilled, (state, action) => {
+            state.books = action.payload;
+            state.loading = false;
+        })
+        builder.addCase(fetchBooks.pending, (state) => {
+            state.loading = true;
+        })
+        builder.addCase(fetchBooks.rejected, (state) => {
+            state.error = true;
+            state.loading = false;
+        })
     }
 })
 export const { setTerm } = bookListSlice.actions;

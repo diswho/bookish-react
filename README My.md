@@ -96,4 +96,4 @@ npm install react-router react-router-dom --save
 ```sh
 npm install @reduxjs/toolkit react-redux --save
 ```
-// Stop Page: 154 [171]
+// Stop Page: 192 [209]

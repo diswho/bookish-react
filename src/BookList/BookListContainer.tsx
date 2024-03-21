@@ -1,13 +1,26 @@
-import { TextField } from "@mui/material";
 import BookList from "./BookList";
-import { useBooks } from "./useBooks";
 import SearchBox from "./SearchBox";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store";
+import { useEffect } from "react";
+import { fetchBooks } from "./createAsyncThunk";
 
 const BookListContainer = () => {
-  const { books, term, setTerm } = useBooks();
+  // const { term, setTerm } = useBooks();
+
+  const { books } = useSelector((state: RootState) => ({
+    books: state.list.books,
+  }))
+
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(fetchBooks(""))
+  }, [dispatch])
+
   return (
-    <>
-      <SearchBox term={term} onSearch={setTerm} />
+    <>      
+      {/* <SearchBox term={term} onSearch={setTerm} /> */}
+      <SearchBox />
       <BookList books={books} />
     </>
   );

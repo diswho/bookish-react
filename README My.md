@@ -90,4 +90,10 @@ node server.js
 npm install react-router react-router-dom --save
 ```
 
+# State Management
+## Environment Setup
+
+```sh
+npm install @reduxjs/toolkit react-redux --save
+```
 // Stop Page: 154 [171]

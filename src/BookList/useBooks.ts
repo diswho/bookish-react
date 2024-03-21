@@ -6,22 +6,6 @@ export const useBooks = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [term, setTerm] = useState("");
-  
-  useEffect(() => {
-    const fetchBooks = async () => {
-      setError(false);
-      setLoading(true);
-      try {
-        const response = await axios.get("http://localhost:8080/books");
-        setBooks(response.data);
-      } catch (e) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBooks();
-  }, []);
 
   useEffect(() => {
     const fetchBooks = async (term: string) => {
